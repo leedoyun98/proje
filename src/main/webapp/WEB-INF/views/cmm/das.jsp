@@ -2,10 +2,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 
-<h1 >
-	Hello
-</h1>
+ <a id="md" href="#">이동하기</a>
+ <h1>메인</h1>
 
+<script>
 
+$(`#md`).click(function(){location.href = `admin/jjj`})
+</script>
