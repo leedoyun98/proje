@@ -1,5 +1,22 @@
 package com.example.demo.brd.service;
 
-public class BoardMapper {
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface BoardMapper {
+
+
+	public int insertWritter(Board b);
+
+	public List<Board> selectAll();
+
+	public int count();
+
+	public Board update(Board b);
+
+	public int delete(Board b);
+
 
 }

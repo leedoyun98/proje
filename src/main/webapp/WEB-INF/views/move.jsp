@@ -10,6 +10,6 @@
 </head>
 <body>
 <tiles:insertAttribute name="cont"/>
-
+<tiles:insertAttribute name="bo"/>
 </body>
 </html>

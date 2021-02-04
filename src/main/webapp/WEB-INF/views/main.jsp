@@ -3,9 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
-
-<h1 >
-	Hello
-</h1>
-
-
+<h1>환영합니다!!</h1>
+ <button id="reg-btn">회원가입</button>
+ <button id="log-btn">로그인</button>
+   
+<jsp:include page="./cmm/head.jsp"/>
+<script>
+$('#reg-btn').click(function(){location.href=`${c}/login/register`})
+$('#log-btn').click(function(){location.href=`${c}/login/login`})
+</script>

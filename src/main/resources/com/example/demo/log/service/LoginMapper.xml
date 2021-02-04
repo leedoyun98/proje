@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.log.service.LoginMapper">
+<insert id="insert" parameterType="com.example.demo.log.service.Login">
+		insert into logins(userid, password)
+		values (#{userid}, #{password})
+	</insert>
+<select id="login" resultType="com.example.demo.log.service.Login"
+   parameterType="com.example.demo.log.service.Login">
+    select login_num loginNum, userid, password
+    from logins 
+    where userid like #{userid} and password like #{password}
+   </select>
+   </mapper>
