@@ -28,6 +28,6 @@ board.list = x =>{
 	$.getJSON(`${x}/boards/list`,d => {
 	alert(`자바동작??`)
 	
+})
 }
-
 
