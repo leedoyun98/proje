@@ -24,9 +24,9 @@ board.writer = x =>{
 	})
 }
 board.list = x =>{
-	alert(`목록 들어는 오나?`)
-	$.getJSON(`${x}/boards/list`,d => {
-	alert(`자바동작??`)
+	alert(`js까지는 들어옴`)
+	$.getJSON(`${x}/boards/list`, d => {
+	alert(`getJSON 동작`)
 	
 })
 }

@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
    <h1> List </h1>
-   <a href="#" id="brd-count`">가져오기</a>
+ 
     <li><a id="home" href="#"> Go Home </a></li>
     <li><a id="back" href="#"> 이전 메뉴 </a></li>
     <table class="table table-hover">
@@ -25,6 +25,6 @@
     <script>
     $('#home').click(function(){ location.href=`${c}`})
     $('#back').click(function(){ location.href=`${c}/admin/board`})
-	board.list(function(){`${c}`})
+	board.list(`${c}`)
 
     </script>
