@@ -23,8 +23,8 @@
     </table>
     
     <script>
-    $('#home').click(function(){ location.href=`${c}`})
-    $('#back').click(function(){ location.href=`${c}/admin/board`})
+    $('#home').click(function(){ location.href=`${demo}`})
+    $('#back').click(function(){ location.href=`${demo}/admin/board`})
 	board.list(`${c}`)
 
     </script>

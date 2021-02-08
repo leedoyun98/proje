@@ -150,7 +150,7 @@ span.psw {
 <script>
 $('#login-btn').click(function(){
 	alert("클릭")
-	login.log(`${c}`)})
+	login.log(`${demo}`)})
 </script>
 
 </body>

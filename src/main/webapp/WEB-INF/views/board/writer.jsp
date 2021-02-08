@@ -19,5 +19,5 @@
 
 </html>
 <script>
-$('#writ').click(function(){board.writer(`${c}`)})
+$('#writ').click(function(){board.writer(`${demo}`)})
 </script>
