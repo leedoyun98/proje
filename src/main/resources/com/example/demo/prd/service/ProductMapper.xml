@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.prd.service.ProductMapper">
+	<insert id="insert" parameterType="com.example.demo.prd.service.Product">
+		insert into products (prd_name, price, inventory) values (#{prdName}, #{price}, #{inventory})
+	</insert>
+	<select id="selectAll" resultType="com.example.demo.prd.service.Product">
+		select prd_id prdId, prd_name prdName, price, inventory from products
+	</select>
+	<select id="selectById" parameterType="int" resultType="com.example.demo.prd.service.Product">
+		select prd_id prdId, prd_name prdName, price, inventory
+		from products 
+		where prd_id like #{prdId}
+	</select>
+	<update id="update" parameterType="com.example.demo.prd.service.Product">
+		update products set prd_name = #{prdName}, price = #{price}, inventory = #{inventory} 
+		where prd_id like #{prdId}
+	</update>
+	<delete id="delete" parameterType="com.example.demo.prd.service.Product">
+		delete from products where prd_id like #{prdId}
+	</delete>
+</mapper>
