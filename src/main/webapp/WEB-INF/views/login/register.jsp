@@ -139,5 +139,5 @@ hr {
 </div>
 
 <script>
-$('#signupbtn').click(function(){login.register(`${demo}`)})
+$('#signupbtn').click(function(){login.register(`${ctx}`)})
 </script>

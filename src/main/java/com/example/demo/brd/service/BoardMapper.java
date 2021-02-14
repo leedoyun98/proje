@@ -14,9 +14,11 @@ public interface BoardMapper {
 
 	public int count();
 
-	public Board update(Board b);
+	public int update(Board b);
 
 	public int delete(Board b);
+
+	public Board selectById(String title);
 
 
 }

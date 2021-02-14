@@ -1,6 +1,6 @@
 package com.example.demo.brd.web;
 
-import java.util.HashMap;
+import java.util.HashMap;  
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +19,8 @@ import com.example.demo.brd.service.BoardMapper;
 import com.example.demo.brd.service.BoardService;
 
 
+
+
 @RestController
 @RequestMapping("/boards")
 public class BoardController {
@@ -28,30 +30,27 @@ public class BoardController {
 	@PostMapping("/writter")
     public Map<?, ?> writter(@RequestBody Board b) {
         var map = new HashMap<>();
-        System.out.println("글쓰기 동작 중");
         map.put("message", (boardMapper.insertWritter(b) == 1) ? "SUCCESS" : "FAILURE");
         return map;
     }
 	@GetMapping("/list")
-    public Map<?,?> list(@PathVariable Board c){
-		System.out.println("하...ㅠㅠㅠㅠㅠ리스트야 제발 여기까지만이라도 들어오자");
-        var map = new HashMap<>();
-        List<Board> list = boardService.list();
-        System.out.println("목록 수: "+list.size());
-        map.put("list", list);
-        map.put("count", boardService.count());
-
-        return map;
+    public List<Board> list(){
+        return boardMapper.selectAll();
     }
+	@GetMapping("/{title}")
+	public Board det(@PathVariable String title) {
+		return boardMapper.selectById(title);
+	}
 	@PutMapping("/update")
 	public Map<?, ?> update(@RequestBody Board b){
 		var map = new HashMap<>();
-		map.put("message",boardMapper.update(b) != null ? "SUCCESS" : "FAILURE");
+		map.put("message",boardMapper.update(b) == 1 ? "SUCCESS" : "FAILURE");
 		return map;
 	}
-	@DeleteMapping("/delete")
-	public Map<?, ?> delete(@PathVariable Board b){
+	@DeleteMapping("/remove")
+	public Map<?, ?> remove(@RequestBody Board b){
 		var map = new HashMap<>();
+		System.out.println("진입");
 		map.put("message",boardMapper.delete(b) == 1 ? "SUCCESS" : "FAILURE");
 		return map;
 	}

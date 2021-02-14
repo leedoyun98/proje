@@ -9,6 +9,6 @@
    
 <jsp:include page="./cmm/head.jsp"/>
 <script>
-$('#reg-btn').click(function(){location.href=`${demo}/login/register`})
-$('#log-btn').click(function(){location.href=`${demo}/login/login`})
+$('#reg-btn').click(function(){location.href=`${ctx}/login/register`})
+$('#log-btn').click(function(){location.href=`${ctx}/login/login`})
 </script>

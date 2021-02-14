@@ -19,7 +19,6 @@ public class LoginController {
 	@PostMapping("")
     public Map<?, ?> register(@RequestBody Login l) {
         var map = new HashMap<>();
-        System.out.println("제발 동작 돼 ㅠㅠㅠㅠㅠ");
         map.put("message", (loginMapper.insert(l) == 1) ? "SUCCESS" : "FAILURE");
         return map;
     }
@@ -28,7 +27,6 @@ public class LoginController {
 	public Map<?, ?> login(@RequestBody Login l) {
 		 var map = new HashMap<>();
 		 Login result = loginMapper.login(l);
-		 System.out.println("하...제발 이것도 좀 진입해봐아아아아아아"+result);
 	        map.put("message", result != null?"SUCCESS":"FAILURE");
 	        return map;
 	}

@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
-@SessionAttributes({"demo","board","login"})
+@SessionAttributes({"ctx","board","login"})
 public class HomeController {
 	@Autowired HttpSession session;
 	@Autowired HttpServletRequest request;
 	
 	 @GetMapping("/")
 	    public String index(HttpSession session, HttpServletRequest request) {
-	    	String demo = request.getContextPath();
-	    	session.setAttribute("demo", demo);
-	    	session.setAttribute("board", demo+"/resources/board");
-	    	session.setAttribute("login", demo+"/resources/login");
+	    	String ctx = request.getContextPath();
+	    	session.setAttribute("ctx", ctx);
+	    	session.setAttribute("board", ctx+"/resources/board");
+	    	session.setAttribute("login", ctx+"/resources/login");
 	    	 System.out.println("메인");
 	        return "main";
 	    }

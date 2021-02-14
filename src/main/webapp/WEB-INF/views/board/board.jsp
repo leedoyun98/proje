@@ -7,6 +7,6 @@
  <button id="wri-list">글 목록</button>
   
 <script>
-$('#wri').click(function(){location.href=`${demo}/admin/writer`})
-$('#wri-list').click(function(){location.href=`${demo}/admin/writerList`})
+$('#wri').click(function(){location.href=`${ctx}/admin/writer`})
+$('#wri-list').click(function(){location.href=`${ctx}/admin/writerList`})
 </script>

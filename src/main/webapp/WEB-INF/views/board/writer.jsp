@@ -7,8 +7,6 @@
 <form> 
 <body>
 <p><label>제목</label><input type="text" id ="title"></p>
-<p><label>작성자</label><input type="text" name="writer" size="15">
-</p>
 <label>내용</label><p>
 <textarea rows="15" cols="65" id = "content"></textarea><p>
 <button type = "submit" id="writ">등록</button>
@@ -19,5 +17,5 @@
 
 </html>
 <script>
-$('#writ').click(function(){board.writer(`${demo}`)})
+$('#writ').click(function(){board.writer(`${ctx}`)})
 </script>

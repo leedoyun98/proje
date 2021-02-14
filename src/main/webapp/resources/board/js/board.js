@@ -1,6 +1,7 @@
 'use strict'
 var board = board || {}
-board.writer = x =>{
+board = (() => {
+	const writer = x => {
 	$.ajax({
 		url: `${x}/boards/writter`,
 		type: 'POST',
@@ -11,7 +12,7 @@ board.writer = x =>{
 		dataType:'json',
 		contentType:'application/json',
 		success: d =>{
-			if(d.message == 'SUCCESS'){
+			if(d.message === 'SUCCESS'){
 				alert(`글쓰기 성공`)
 				 location.href =`${x}/admin/board`
 			}else{
@@ -23,11 +24,85 @@ board.writer = x =>{
 		}
 	})
 }
-board.list = x =>{
-	alert(`js까지는 들어옴`)
+const list = x =>{
 	$.getJSON(`${x}/boards/list`, d => {
-	alert(`getJSON 동작`)
-	
-})
-}
+			$.each(d, (i, j) => {
+				$(`<tr></td>
+					<td>${j.boardNum}</td>
+					<td><a class="title" href="#" id="${j.boardNum}">${j.title}</a></td>
+					</tr>`)
+					.css({padding: `20px`, textAlign: `center`})
+					.appendTo(`#tab`)
+			})
+			$(`.title`).each(function(){
+				$(this).click(e => {
+					e.preventDefault()
+					localStorage.setItem(`title`, `${this.id}`)
+					location.href=`${x}/admin/det`
+				
+				})
+			})
+		})
+	}	
+	const det = x => {
+		$.getJSON(`${x}/boards/${localStorage.getItem(`title`)}`, d => {
+			$(`#boardNum`).text(d.boardNum)
+			$(`#boardTitle`).text(d.title)
+			$(`#boardContent`).text(d.content)
+			
+			 $('#update').click(e => { 
+             $('#boardTitle').html('<input type ="text" id="update-title" value="'+d.title+'"/>')
+             $('#boardContent').html('<textarea id="update-content" style="height: 300px"> "'+d.content+'"</textarea>')
+             $(`#update`).html('<div id="confirm">수정완료</div>')
+				$(`#confirm`).click(e => {
+					e.preventDefault()
+					$.ajax({
+						url: `${x}/boards/update`,
+						type: `PUT`,
+						data: JSON.stringify({
+							boardNum: d.boardNum,
+							title: $(`#update-title`).val(),
+							content: $(`#update-content`).val(),
+						}),
+						dataType: `json`,
+						contentType: `application/json`,
+						success: d => {
+							if(d.message === 'SUCCESS') {
+								alert(`수정 성공`)
+								location.href=`${x}/admin/writerList`
+							}else {
+								alert(`수정 실패`)
+							}
+						},
+						error: e => { alert(`수정 에러`)}
+					})
+					})
+             
+        })
+
+			$(`#delete`).click(e => {
+				e.preventDefault()
+				$.ajax({
+					url: `${x}/boards/remove`,
+					type: `DELETE`,
+					data: JSON.stringify({
+						boardNum: d.boardNum
+					}),
+					dataType: `json`,
+					contentType: `application/json`,
+					success: d => {
+						if(d.message === `SUCCESS`) {
+							alert(`삭제완료`)
+							location.href=`${x}/admin/writerList`
+						}else {
+							alert(`삭제 실패`)
+						}
+					},
+					error: e => { alert(`삭제 에러`)}
+				})
+			})
+		})
+	}
+	return {list,writer,det}
+	})()
 

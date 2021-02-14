@@ -6,15 +6,19 @@
 		insert into boards(title, content)
 		values (#{title}, #{content})
 	</insert>
-	<select id="selectAll" resultType="com.example.demo.brd.service.Board"
-	parameterType="com.example.demo.brd.service.Board">
-		select 
-				title, 
-				content, 
-				written_date writtenDate, 
+	<select id="selectAll" resultType="com.example.demo.brd.service.Board">
+		select board_num boardNum,
+				title,
+				content,
+				written_date writtenDate,
 				updated_date updatedDate
 				from boards
 		
+	</select>
+	<select id="selectById" parameterType="string" resultType="com.example.demo.brd.service.Board">
+		select board_num boardNum,title,content
+		from boards 
+		where board_num like #{boardNum}
 	</select>
 	
 	<select id="count" resultType="int">
@@ -23,12 +27,12 @@
 
 	<update id="update" parameterType="com.example.demo.brd.service.Board">
 		update boards
-		set (#{title}, #{content})
-		where title like ${value}
+		set title=#{title}, content=#{content}
+		where board_num like ${boardNum}
 	</update>
 
 	<delete id="delete" parameterType="com.example.demo.brd.service.Board">
-		delete from boards
+		delete from boards where board_num like ${boardNum}
 	</delete>
 
 </mapper>
