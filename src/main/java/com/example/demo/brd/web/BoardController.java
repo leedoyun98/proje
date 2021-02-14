@@ -50,7 +50,6 @@ public class BoardController {
 	@DeleteMapping("/remove")
 	public Map<?, ?> remove(@RequestBody Board b){
 		var map = new HashMap<>();
-		System.out.println("진입");
 		map.put("message",boardMapper.delete(b) == 1 ? "SUCCESS" : "FAILURE");
 		return map;
 	}

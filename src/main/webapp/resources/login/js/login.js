@@ -1,7 +1,6 @@
 'use strict'
 var login = login || {}
 login.register = x => {
-	alert(`날라가나??`)
             $.ajax({
                 url:`${x}/logins`,
                 type: 'POST',
@@ -26,7 +25,6 @@ login.register = x => {
             })
 }
 login.log = x =>{
-	alert(`로그인은 날라가나??`)
 	$.ajax({
 		url: `${x}/logins/login`,
 		type: 'POST',
