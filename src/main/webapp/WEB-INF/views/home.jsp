@@ -6,11 +6,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<head>
+	<title>Home</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="${cmm}/js/cmm.js"></script>
-<script src="${mem}/js/mem.js"></script>
 </head>
+<body>
+<h1>
+Home
+<button type="button" class="joinPage-btn" id="joinPage-btn">회원가입</button>	  
+<button type="button" class="loginPage-btn" id="loginPage-btn">로그인</button>	
+</h1>
+<script src="${cmm}/js/cmm.js"></script>
+<script>
+cmm.joinPage()
+cmm.loginPage()
+</script>
+</body>
 </html>

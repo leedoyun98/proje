@@ -1,15 +1,15 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <!DOCTYPE html>
 <html>
 <head>
-<tiles:insertAttribute name="head"/> 
+<meta charset="utf-8">
+<title>에러 페이지</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-<tiles:insertAttribute name="cont"/>
-
+<script></script>
 </body>
 </html>
