@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.adm.service.MemberMapper">
+	
+	<!-- 회원등록 -->
+	<insert id="register" parameterType="com.example.demo.adm.service.Member">
+		insert into members(email, password, ages, level, city, address, gender, phone)
+		values(#{email}, #{password}, #{ages}, #{level}, #{city}, #{address}, #{gender}, #{phone})
+	</insert>
+	
+	<!-- email로 사용자 찾기 -->
+	<select id="selectMemberByEmail" parameterType="string" resultType="com.example.demo.adm.service.Member">
+		select email, ages, level, address, gender, phone
+		from
+		members
+		where email like #{value}
+	</select>
+	
+	
+	<!-- 회원정보 업데이트 -->
+	<delete id="updateById" parameterType="string">
+		select email, password, ages, level, city, address, gender, phone
+		from members
+		where email like ${value}
+	</delete>
+	
+	
+	<!-- email로 회원 삭제 -->
+	<delete id="deleteMemberByInfo" parameterType="string">
+		select email, password, ages, level, city, address, gender, phone
+		from members
+		where email like ${value}
+	</delete>
+	
+	
+	<select id="getList" resultType="com.example.demo.adm.service.Member">
+		select email, password, ages, level, city, address, gender, phone 
+		from members 
+	</select>
+	
+	
+</mapper>
